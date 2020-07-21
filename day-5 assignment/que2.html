@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-5 Assignment</title>
+</head>
+<body>
+        <script>
+        
+                    class User {
+                constructor(name, age,email) {
+                this.name = name;
+                this.age = age;
+                this.email = email;
+                this.Coins = 0;
+                this.courses = [];
+                }
+
+                
+
+                login(){
+                    console.log(`${this.name} has logged in`);
+                    return this;
+                }
+                logout(){
+                    console.log(`${this.name} has logged out`);
+                    return this;
+                }
+                
+                getDetails(){
+                    console.log(`Name is ${this.name}, email is ${this.email}`);
+                    return this;
+                }
+
+            }
+
+            class Moderator extends User
+            {
+                constructor(name,age,email,role)
+                {
+                    super(name,age,email);
+                    this.role = role;
+                }
+
+                addCoins()
+                {
+                    this.Coins++;
+                    console.log(`${this.name} has ${this.Coins} coins`);
+                    return this;
+                }
+
+                removecoin()
+                {
+                    this.Coins--;
+                    console.log(`${this.name} has ${this.Coins} Coins now`);
+                }
+
+
+            }
+
+            class Admin extends Moderator
+                {
+                    addCourse(user,course)
+                    {
+                        user.courses.push(course);
+                        console.log(user);
+                    }
+                    removecourse(user,course)
+                    {
+                        user.course.delete(course);
+                        console.log(user)
+                    }
+
+                 }
+
+
+            let user1 = new User('amit',25,'Amit@gmail.com');
+            let mod = new Moderator('prashant',24,'prashan@gmail.com','Moderator');
+            let admin = new Admin('karan',24,'karan@gmai.com');
+            let users = [user1,mod,admin];
+
+            users.forEach(element => {
+                console.log(element);
+            });
+        </script>
+</body>
+</html>
