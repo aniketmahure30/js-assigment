@@ -3,39 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Day-4 assgnment</title>
 </head>
 <body>
      <script>
-        // function ask(question,yes,no)
-        // {
-        //     if(confirm(question)) yes()
-        //     else no();
-        // }
+        
 
-        // ask(
-        //     "Do you agree?",
-        //     function(){ alert("You agreed.");},
-        //     function(){ alert("You canceled the execution.");}
-
-        // );
-
-    //    let ask = (question,yes,no)=>(confirm(question))?'Yes()':'No()';
-
-    //    
-
-       (question,yes,no)=>{
-        if(confirm(question)) {
-                return yes();
+      let ask = (question,yes,no)=>{
+        if(confirm(question))yes()
+           else no();
 
         }
 
        }
-       let result=ask("Do you agree?",
+       ask("Do you agree?",
             function(){ alert("You agreed.");},
           function(){ alert("You canceled the execution.");
-
-       console.log(result);
+                    });
       
            
     </script>
