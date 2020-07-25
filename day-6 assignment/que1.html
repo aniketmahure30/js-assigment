@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="background" style ="height: 200px;"></div>
+    <script>
+        var bg = document.getElementById("background");
+        let colorname = ['blue','yellow','red','green'];
+        var i=0;
+        setInterval(
+            function(){
+                let changecolor = Math.floor(Math.random()*16777215)
+                .toString(160);
+                document.body.style.backgroundColor="#"+ changecolor;
+            },5000);
+    </script>
+</body>
+</html>
