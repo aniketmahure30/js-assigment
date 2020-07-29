@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stopwatch</title>
+    <style>
+        *{
+            padding: 5px;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 90%;
+            background-color: antiquewhite;
+            align-items: center;
+            
+        }
+        .btn-start{
+            height: 35px;
+            width: 50px;
+            border-radius: 25px; 
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: rgb(253, 253, 247);
+            background-color: rgb(14, 197, 54);
+        }
+
+        .btn-start:hover{
+            opacity: 0.7;
+        }
+
+        .btn-stop{
+            height: 35px;
+            width: 50px;
+            border-radius: 25px; 
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: rgb(250, 250, 248);
+            background-color: rgb(250, 3, 3);
+        }
+
+        .btn-stop:hover{
+            opacity: 0.7;
+        }
+
+        .btn-reset{
+            height: 35px;
+            width: 50px;
+            border-radius: 25px; 
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: rgb(247, 244, 246);
+            background-color:rgb(255, 0, 242)
+
+        }
+
+        .btn-reset:hover{
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+        <center>
+            <h1>STOPWATCH</h1>
+            <h3 class="stopwatch" id="stopwatch">
+                    <!-- stopwatch goes here -->
+            </h3>
+                <button class="btn-start" id="startBtn">Start</button>
+                <button class="btn-stop" id="stopBtn">Stop</button>
+                <button class="btn-reset" id="resetBtn">Reset</button>
+            </center>
+        <script>
+            let output = document.getElementById('stopwatch');
+            let ms = 0;
+            let sec = 0;
+            let min = 0;
+
+            function timer() {
+            ms++;
+
+                if(ms >= 100){
+                    sec++
+                    ms = 0
+                }
+                if(sec === 60){
+                    min++
+                    sec = 0
+                }
+                if(min === 60){
+                    ms, sec, min = 0;
+                }
+
+                //Doing some string interpolation
+                let milli = ms < 10 ? `0`+ ms : ms;
+                let seconds = sec < 10 ? `0`+ sec : sec;
+                let minute = min < 10 ? `0` + min : min;
+
+                let timer= `${minute}:${seconds}:${milli}`;
+                output.innerHTML =timer;
+            };
+
+
+            //Start timer
+
+            function start(){
+                 time = setInterval(timer,10);
+            }
+
+            //stop timer
+
+            function stop(){
+                clearInterval(time)
+            }
+
+            //reset timer
+
+            function reset(){
+                ms = 0;
+                sec = 0;
+                min = 0;
+
+                output.innerHTML = `00:00:00`
+            }
+
+            const startBtn = document.getElementById('startBtn');
+            const stopBtn =  document.getElementById('stopBtn');
+            const resetBtn = document.getElementById('resetBtn');
+
+            startBtn.addEventListener('click',start,false);
+            stopBtn.addEventListener('click',stop,false);
+            resetBtn.addEventListener('click',reset,false);
+        </script>
+</body>
+</html>
